@@ -1,3 +1,6 @@
+// this class builds a complex object set of brackets and arrays to send to queue. 
+// ----------------------------------------------
+
 class Stack {
     #stack;
 

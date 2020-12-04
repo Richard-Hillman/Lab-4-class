@@ -1,16 +1,16 @@
 const express = require('express');
 const app = express();
-const Linter = require('./Linter');
+const { linter } = require('./linter');
+const Stack = require('./Stack')
 
 // middleware, method for express to recognize incoming request as a JSON object, comes from express-------------------------------------------
 app.use(express.json());
 
+
 // endpoints ------------------------------------
-app.post('/api/v1/linter', (req, res) => {
-    const newLintedText = Linter(req.body)
-    console.log(req.body);
+app.post('/api/v1/lint', (req, res) => {
+    const newLintedText = linter(req.body.lint)
     res.send(newLintedText)
-    res.send('Linted!');
 });
 
 
