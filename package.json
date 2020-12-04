@@ -1,0 +1,22 @@
+{
+  "name": "lab-4-class",
+  "version": "1.0.0",
+  "description": "'linting'",
+  "main": "linter.js",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "npm run test -- --watch",
+    "start": "node server.js",
+    "start:watch": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Richard-Hillman/Lab-4-class.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Richard-Hillman/Lab-4-class/issues"
+  },
+  "homepage": "https://github.com/Richard-Hillman/Lab-4-class#readme"
+}
