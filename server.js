@@ -1,11 +1,12 @@
 const express = require('express');
 const app = express();
 
-// method for express to recognize incoming request as a JSON object, comes from express-------------------------------------------
-// app.use(express.json());
+// middleware, method for express to recognize incoming request as a JSON object, comes from express-------------------------------------------
+app.use(express.json());
 
 // endpoints ------------------------------------
-app.get('/', (req, res) => {
+app.post('/api/v1/linter', (req, res) => {
+    console.log(req.body);
     res.send('YOU DIT IT');
 });
 
