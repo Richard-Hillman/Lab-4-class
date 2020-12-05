@@ -29,11 +29,11 @@ const brackets = (item) => {
 
 const loopThrough = (array) => {
     const bracketStack = new Stack();
-    let result = true 
+    let result = true; 
 
     array 
-    .map(bracketStack => {
-        const peek = bracketStack.peek();
+    .map(bracket => {
+        const peek = bracketStack.peek;
         if (
             openBrackets.includes(bracket)) {
             bracketStack.push(bracket)
@@ -42,7 +42,7 @@ const loopThrough = (array) => {
                 bracketStack.pop()
             } else {
                 result = {
-                    missing: matchBrackets[peek || bracket]
+                    missing: pairBrackets[peek || bracket]
                 }
             }
         }
@@ -58,13 +58,13 @@ const linter = (body) => {
             'success': true
         }
     } else return {
-        'error': `missing ${result.missing}`
+        'error': missing `${result.missing}`
     }
 }
 
 const testLinter = linter('function add(a, b) {]return a + b;}')
 console.log(testLinter);
 
-module.exports{ 
+module.exports = {
     linter
 };
