@@ -20,14 +20,14 @@ class Stack {
     // look at item 
     // access the stack and use the index
     peek() {
-        this.#stack[this.stack.length-1]
+       return this.#stack[this.#stack.length-1]
     }
 
 // -----------------------------------------------
 
     // take top item, return item
     pop() {
-        this.#stack.pop()
+        return this.#stack.pop()
     }
 
 }
