@@ -39,17 +39,26 @@ const loopThrough = (array) => {
         if (
             openBrackets.includes(bracket)) {
                 bracketStack.push(bracket)
-            } else {
+            } else {  
                 if (pairBrackets[bracket] === peek){
                     bracketStack.pop()
+                
                 } else {
                     result = {
                         missing: pairBrackets[peek || bracket]
                     }
-                    console.log(result.missing, 'result after');
+                }
             }
-        }
     })
+
+    if (bracketStack.peek()){
+
+        result = {
+            missing: pairBrackets[bracketStack.peek()]
+        }
+        
+    }
+console.log(result)
     return result;
 }
 
@@ -57,10 +66,10 @@ const loopThrough = (array) => {
 
 const linter = (body) => {
     const bracketsArray = brackets(body)
- 
+ console.log(bracketsArray)
     const result = loopThrough(bracketsArray)
 
-    if(result === true && bracketStack.peek()) {
+    if(result === true) {
         return {
             'success': true
         }
@@ -68,9 +77,6 @@ const linter = (body) => {
         'error': `missing ${result.missing}`
     }
 }
-
-const testLinter = linter('funky ( add(return a + b;')
-console.log(testLinter, ' of ttestttttttttttttt');
 
 module.exports = {
     linter
